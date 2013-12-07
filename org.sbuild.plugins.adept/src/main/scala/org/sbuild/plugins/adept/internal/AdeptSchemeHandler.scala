@@ -1,29 +1,16 @@
-package org.sbuild.plugins.adept
+package org.sbuild.plugins.adept.internal
 
-import java.io.File
-import java.net.URLClassLoader
-import de.tototec.sbuild.MavenSupport.MavenGav
+import de.tototec.sbuild.Logger
 import de.tototec.sbuild.Project
-import de.tototec.sbuild.ResolveFiles
 import de.tototec.sbuild.SchemeHandler.SchemeContext
 import de.tototec.sbuild.SchemeResolver
 import de.tototec.sbuild.TargetContext
-import de.tototec.sbuild.TargetRefs
-import de.tototec.sbuild.TargetRefs.fromString
-import de.tototec.sbuild.Logger
 
 object AdeptSchemeHandler {
-
-  val version = InternalConstants.version
-
   trait Repository
-
 }
 
-class AdeptSchemeHandler(
-  aetherClasspath: Seq[File] = Seq(),
-  localRepoDir: File = new File(System.getProperty("user.home") + "/.m2/repository"),
-  remoteRepos: Seq[AdeptSchemeHandler.Repository])(implicit project: Project)
+class AdeptSchemeHandler()(implicit project: Project)
     extends SchemeResolver {
 
   private[this] val log = Logger[AdeptSchemeHandler]
