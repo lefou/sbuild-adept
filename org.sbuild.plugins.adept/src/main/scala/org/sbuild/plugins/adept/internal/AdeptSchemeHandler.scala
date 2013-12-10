@@ -6,6 +6,10 @@ import de.tototec.sbuild.SchemeHandler.SchemeContext
 import de.tototec.sbuild.SchemeResolver
 import de.tototec.sbuild.TargetContext
 import adept.core.resolution.Resolver
+import adept.core.models.ResolveResult
+import adept.core.models.ResolvedResult
+import adept.core.models.UnderconstrainedResult
+import adept.core.models.OverconstrainedResult
 
 object AdeptSchemeHandler {
   trait Repository
@@ -30,15 +34,17 @@ class AdeptSchemeHandler()(implicit project: Project)
     val deps = ???
 
     resolver.resolve(deps) match {
-      case Right(state) =>
-        val ids = state.resolved
-        ids.map { id => 
-        id.value
-        
-        // TODO somehow unpack resolved result, download them and attach to context
-        
-        }
-      case Left(state) => throw new RuntimeException("Could not resolve dependency: " + schemeCtx.fullName + "\nState: " + state)
+      case r: ResolvedResult =>
+      //        val ids = state
+      //        ids.map { id =>
+      //          id.value
+
+      // TODO somehow unpack resolved result, download them and attach to context
+
+      //        }
+
+      case u: UnderconstrainedResult => throw new RuntimeException("Could not resolve underconstrained dependency: " + schemeCtx.fullName + "\nResult: " + u)
+      case o: OverconstrainedResult => throw new RuntimeException("Could not resolve overconstrained dependency: " + schemeCtx.fullName + "\nResult: " + o)
     }
   }
 

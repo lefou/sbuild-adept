@@ -46,7 +46,8 @@ class SBuild(implicit _project: Project) {
     //      s"spray:io.spray:spray-http:${sprayVersion}" ~
     //      s"spray:io.spray:spray-util:${sprayVersion}" ~
     //      s"spray:io.spray:spray-can:${sprayVersion}"
-    "../../../../tmp/adept_lefou.git/target/scala-2.10/adept-core_2.10-mark-2.jar"
+    "../../../../tmp/adept_lefou.git/target/scala-2.10/adept-core_2.10-mark-2.jar",
+    "mvn:org.apache.ivy:ivy:2.3.0"
   )
 
   val compileCp =
