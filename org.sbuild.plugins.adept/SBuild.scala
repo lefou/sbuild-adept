@@ -79,7 +79,6 @@ class SBuild(implicit _project: Project) {
   Target(sourcesZip) dependsOn sources ~ "LICENSE.txt" exec { ctx: TargetContext =>
     AntZip(destFile = ctx.targetFile.get, fileSets = Seq(
       AntFileSet(dir = Path("src/main/scala")),
-      AntFileSet(dir = Path("target/generated-scala")),
       AntFileSet(file = Path("LICENSE.txt"))
     ))
   }
