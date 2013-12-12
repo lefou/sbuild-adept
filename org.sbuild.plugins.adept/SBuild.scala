@@ -32,22 +32,22 @@ class SBuild(implicit _project: Project) {
   SchemeHandler("spray", new MvnSchemeHandler(repos = Seq(sprayRepoUrl)))
 
   val adeptCp = Seq(
-    //      "mvn:org.apache.ivy:ivy:2.3.0-rc1" ~
-    //      "mvn:org.eclipse.jgit:org.eclipse.jgit:2.3.1.201302201838-r" ~
-    //      "mvn:com.jcraft:jsch:0.1.50" ~
-    //      "mvn:org.slf4j:slf4j-api:1.7.5" ~
-    //      "mvn:ch.qos.logback:logback-core:1.0.9" ~
-    //      "mvn:ch.qos.logback:logback-classic:1.0.9" ~
-    //      "mvn:com.typesafe:config:1.0.2" ~
+    "mvn:org.eclipse.jgit:org.eclipse.jgit:3.1.0.201310021548-r",
+    "mvn:net.sf.ehcache:ehcache-core:2.6.6",
     s"mvn:org.json4s:json4s-native_${scalaBinVersion}:${json4sVersion}",
     s"mvn:org.json4s:json4s-core_${scalaBinVersion}:${json4sVersion}",
     s"mvn:org.json4s:json4s-ast_${scalaBinVersion}:${json4sVersion}",
-    //      s"mvn:com.typesafe.akka:akka-actor_${scalaBinVersion}:2.1.4" ~
-    //      s"spray:io.spray:spray-http:${sprayVersion}" ~
-    //      s"spray:io.spray:spray-util:${sprayVersion}" ~
-    //      s"spray:io.spray:spray-can:${sprayVersion}"
-    "../../../../tmp/adept_lefou.git/target/scala-2.10/adept-core_2.10-mark-2.jar",
-    "mvn:org.apache.ivy:ivy:2.3.0"
+    "mvn:org.apache.ivy:ivy:2.3.0",
+    //      "mvn:com.jcraft:jsch:0.1.50",
+    //      "mvn:org.slf4j:slf4j-api:1.7.5",
+    //      "mvn:ch.qos.logback:logback-core:1.0.9",
+    //      "mvn:ch.qos.logback:logback-classic:1.0.9",
+    //      "mvn:com.typesafe:config:1.0.2",
+    //      s"mvn:com.typesafe.akka:akka-actor_${scalaBinVersion}:2.1.4",
+    //      s"spray:io.spray:spray-http:${sprayVersion}",
+    //      s"spray:io.spray:spray-util:${sprayVersion}",
+    //      s"spray:io.spray:spray-can:${sprayVersion}",
+    "../../../../tmp/adept_lefou.git/target/scala-2.10/adept-core_2.10-mark-2.jar"
   )
 
   val compileCp =
