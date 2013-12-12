@@ -108,4 +108,12 @@ class SBuild(implicit _project: Project) {
     )
   }
 
+  Target("phony:local-test") dependsOn jar exec {
+    val cmd =
+      Seq("sbuild", "-f", "Test.scala", "adept-dependencies") ++
+      Prop.get("adept.deps").map(d => Seq("-D", s"adept.deps=$d")).getOrElse(Seq())
+    println("Executing: " + cmd.mkString(" "))
+    scala.sys.process.Process(cmd).!
+  }
+
 }
